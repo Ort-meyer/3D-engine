@@ -25,7 +25,7 @@ Mesh::Mesh(vector<Vertex> p_vertices, vector<int> p_indices)
 	{
 		t_model.indices.push_back(p_indices.at(i));
 	}
-
+	
 
 	//for (int i = 0; i < p_indices.size(); i++)
 	//{
