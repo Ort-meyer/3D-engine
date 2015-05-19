@@ -1,0 +1,7 @@
+#define WIDTH 1024
+#define HEIGHT 768
+#define MAP_HEIGHT 100
+#define MAP_WIDTH 100
+#define MAP_SCALE 2
+#define MAX_VERTICES_PER_LEAF 1000
+#define DEBUGPOLYGONMODE 0
