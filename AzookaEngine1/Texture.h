@@ -11,7 +11,7 @@ class Texture
 public:
 	Texture(string& p_fileName);
 	~Texture();
-
+	
 	void Bind(unsigned int p_unit);
 
 

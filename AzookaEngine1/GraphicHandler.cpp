@@ -35,8 +35,9 @@ GraphicHandler::GraphicHandler(mat4 p_playerPerspectiveMatrix)
 	//Creating some meshes
 	CreateMirrorMesh();
 	m_bthTexture = new Texture(string("./textures/bth.png"));
-	m_bthTexture->Bind(0);
+	m_terrainTexture = new Texture(string("./textures/terrain.png"));
 
+	m_bthTexture->Bind(0);
 
 }
 

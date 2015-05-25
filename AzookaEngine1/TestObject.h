@@ -17,7 +17,11 @@ public:
 
 private:
 	float m_movement;
-	vec3 m_direction;
-	Transform m_transform;
+	vec3 m_up;
+	vec3 m_position;
+	vec3 m_lookDirection;
+	vec3 m_moveDirection;
+	vec3 m_scale;
+	mat4 m_worldMatrix;
 };
 

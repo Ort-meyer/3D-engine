@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 	Display m_display(WIDTH, HEIGHT, "Hello World!");
 	UserCmd m_userCmd;
 	Player* m_player = new Player(vec3(0, 0, 0), vec3(0, 0, -1), vec3(0, 1, 0));
-	TestObject m_testObject(vec3(10, 10, -10));
+	TestObject m_testObject(vec3(0, 5, 0));
 	GraphicHandler m_graphicHandler = GraphicHandler(m_player->GetPerspectiveMatrix());
 
 	m_graphicHandler.AddNewMesh(MESH_BTH,"./objs/bth.obj");
@@ -66,6 +66,8 @@ int main(int argc, char** argv)
 		/////DRAW
 		m_display.Clear(vec4(0, 1, 0.5, 1));
 		mat4 t_cameraMatrix;
+
+
 		////DRAW EVERYTHING TO BE SHADOWED
 		m_graphicHandler.ChangeState(SHADOW);
 		vector<mat4> t_bthObjMatrices = GetBthMatrices();
@@ -73,16 +75,16 @@ int main(int argc, char** argv)
 		m_graphicHandler.DrawInstanced(MESH_BTH, SHADER_SHADOW, GetBthMatrices());
 		m_testObject.Draw(&m_graphicHandler);
 
+
+
 		////DRAW EVERYTHYING TO BE REFLECTED
 		m_graphicHandler.ChangeState(REFLECTION);
 		m_graphicHandler.DrawTerrain();
 		m_testObject.Draw(&m_graphicHandler);
 
 		///Draw BTH obj
-		//add sun to the list (sun probably shouldn't be a BTH logo...)
-
-		t_bthObjMatrices.push_back(m_graphicHandler.GetSunWorldMatrix() * scale(vec3(0.05)));
 		m_graphicHandler.DrawInstanced(MESH_BTH, SHADER_BASIC_INSTANCED, t_bthObjMatrices);
+
 
 
 		///DRAW EVERYTHING FROM PLAYER'S PERSPECTIVE

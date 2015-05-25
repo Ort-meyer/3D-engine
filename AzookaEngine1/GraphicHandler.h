@@ -53,5 +53,6 @@ private:
 	Reflection* m_reflection;
 	Reflection* m_shadow;
 	Texture* m_bthTexture;
+	Texture* m_terrainTexture;
 };
 

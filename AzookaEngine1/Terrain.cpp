@@ -35,10 +35,6 @@ void Terrain::CreateTerrain()
 			Vertex tempVertex;
 			tempVertex.m_position[0] = x*scale;
 			float height = m_heightMap[z][x].x;
-			if (height != 25)
-			{
-				int derp = 0;
-			}
 			tempVertex.m_position[1] = height;
 			tempVertex.m_position[2] = -z*scale;
 			float t1 = 1 - ((float)x - (float)(m_mapWidth)) / (float)-m_mapWidth;

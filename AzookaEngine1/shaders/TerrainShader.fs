@@ -24,7 +24,7 @@ void main()
 	
 	float xOffset = 1.0/1024;
     float yOffset = 1.0/768;
-	float Factor = 0.0;
+	float shadowFactor = 0.0;
 	
 	for (int y = -1 ; y <= 1 ; y++)  //Alliasing from the 9 pixels around you + the acctual pixel
 	{
@@ -32,17 +32,19 @@ void main()
 		{
 			vec2 Offsets = vec2(x * xOffset, y * yOffset);
 			vec3 UVC = vec3(smTexCoord + Offsets, depth);
-			Factor += texture(shadowMap, UVC);
+			shadowFactor += texture(shadowMap, UVC);
 		}
     }
-	Factor =  0.5 + Factor/9;
+	shadowFactor =  0.5 + shadowFactor/9;
 	//if(depth > texture(shadowMap,vec3(smTexCoord,depth))) // Without aliasing
 	//{
 		//finalColor = vec4(0,0,0,1);
 	//}
 	//else
 	//{
-		finalColor =  texture2D(textureTerrain,texCoord0)* clamp(dot(lightDirection, normal0), 0, 1) * Factor;
+	float lightFactor = clamp(dot(lightDirection, normal0), 0, 1);
+	
+	finalColor =  texture2D(textureTerrain,texCoord0)* lightFactor * shadowFactor;
 	//}
 	fragColor = finalColor;
 	fragColor.a = 1;

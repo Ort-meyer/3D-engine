@@ -107,6 +107,7 @@
     <ClInclude Include="GraphicHandler.h" />
     <ClInclude Include="GraphicsStructs.h" />
     <ClInclude Include="Light.h" />
+    <ClInclude Include="MathHelper.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="obj_loader.h" />
     <ClInclude Include="Plane.h" />
